@@ -1,0 +1,12 @@
+<div class="input-container">
+    <label *ngIf="label" class="input-label">{{ label }}</label>
+    <input 
+      pInputText
+      type="text" 
+      [(ngModel)]="value" 
+      [placeholder]="placeholder"
+      class="input-box"
+      (input)="sendValue()"
+    />
+  </div>
+  
