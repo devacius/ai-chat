@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  chatResponse='';
   private readonly BACKEND_URL= environment.apiBaseUrl;
   private readonly apiUrl = `${this.BACKEND_URL}/extract-query`; // Replace with your actual API URL
 
