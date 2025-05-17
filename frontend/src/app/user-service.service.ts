@@ -1,15 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private readonly BACKEND_URL= environment.apiBaseUrl;
+  private readonly apiUrl = `${this.BACKEND_URL}/extract-query`; // Replace with your actual API URL
 
-  private apiUrl = 'http://127.0.0.1:8000/extract-query'; // Replace with your actual API URL
-
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   // Method for making POST request with query parameters
   postWithQueryParams(queryParams: any, bodyData: any): Observable<any> {
