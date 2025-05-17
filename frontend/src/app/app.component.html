@@ -181,6 +181,7 @@
 <div class="flex flex-row bg-white">
   <app-input-field label="Enter your Question" placeholder="Type here..." class="px-4" (inputValueChange)="handleInputChange($event)"></app-input-field>
   <app-button label="Click Me" severity="primary"(onClick)="logInputValue()"></app-button>
+  <app-chat-response-display [responseText]="chatResponse"></app-chat-response-display>
 </div>
 </main>
 
