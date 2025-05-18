@@ -1,7 +1,5 @@
 import os
 from typing import List, Union
-
-import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel
@@ -14,7 +12,6 @@ import fitz
 import faiss
 
 app = FastAPI()
-port = int(os.environ.get("PORT", 10000))
 
 
 load_dotenv()
@@ -166,4 +163,7 @@ def extract_text_from_pdf(file_path: str) -> str:
     return text
 
 if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+
