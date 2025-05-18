@@ -1,0 +1,9 @@
+/* Minimal style if not using Tailwind */
+.bg-green-500 {
+    background-color: #38a169;
+  }
+  
+  .bg-red-500 {
+    background-color: #e53e3e;
+  }
+  
