@@ -1,5 +1,7 @@
 import os
 from typing import List, Union
+
+import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel
@@ -11,15 +13,17 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 import fitz
 import faiss
 
-
 app = FastAPI()
+port = int(os.environ.get("PORT", 10000))
+uvicorn.run(app, host="0.0.0.0", port=port)
 load_dotenv()
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
+FRONTEND_URI= os.getenv("FRONTEND_URI")
 TOGETHER_API_URL = "https://api.together.xyz/v1/chat/completions"
 MODEL_NAME = "mistralai/Mixtral-8x7B-Instruct-v0.1"  # or any supported model
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],  # Your Angular app's origin
+    allow_origins=[FRONTEND_URI],  # Your Angular app's origin
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
