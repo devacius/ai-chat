@@ -15,7 +15,8 @@ import faiss
 
 app = FastAPI()
 port = int(os.environ.get("PORT", 10000))
-uvicorn.run(app, host="0.0.0.0", port=port)
+
+
 load_dotenv()
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 FRONTEND_URI= os.getenv("FRONTEND_URI")
@@ -163,3 +164,6 @@ def extract_text_from_pdf(file_path: str) -> str:
     for page in doc:
         text += page.get_text()
     return text
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
