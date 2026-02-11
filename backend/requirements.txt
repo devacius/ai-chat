@@ -31,7 +31,7 @@ networkx==3.2.1
 numpy==2.0.2
 openai==1.63.2
 packaging==25.0
-pillow==11.2.1
+pillow==12.1.1
 pydantic==2.10.6
 pydantic_core==2.27.2
 Pygments==2.19.1
